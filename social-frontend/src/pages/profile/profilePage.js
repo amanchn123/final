@@ -38,7 +38,7 @@ export default function Profilepage() {
        await data.append("api_key", "425238981713824");
        await data.append("upload_preset", "chatting");
        await data.append("cloud_name", "amanchn")
-        console.log(data)
+        
        await fetch("https://api.cloudinary.com/v1_1/chatapp/image/upload", {
         method: "post",
         body: data,
@@ -51,7 +51,7 @@ export default function Profilepage() {
               currentUser:userData._id,
               profilePic:data.url.toString()
             })
-          console.log('pic',data.url.toString())
+          
         })
     }else{
       alert("lllll")
@@ -89,7 +89,6 @@ export default function Profilepage() {
   const post = useSelector((state) =>
     state.currentPost ? state.currentPost.data : ""
   );
-  // console.log("mainuser",getUsers)
 
   return (
     <div

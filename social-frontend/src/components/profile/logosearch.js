@@ -56,14 +56,16 @@ const followUnfollow=useSelector((state)=>state.followUnfollow.data)
       <div className="names" >
       {user!==""? getUsers.filter(names=>names.username.includes(user)).map((naam)=>{
         return(
-          <div className="naam" style={{display:'flex'}}>
+          <div className="naam row" style={{display:'flex',marginBottom:"6px"}}>
 
-          {naam.username}&nbsp;
-          {Object.values(naam.followers).includes(userData._id)? <Button variant="primary" size="sm" onClick={()=>followaction(naam._id)}>following</Button>:
-          <Button variant="light" size="sm" onClick={()=>followaction(naam._id)}>follow</Button>}
+         <div className="col-sm-8" style={{display:"flex",fontSize:"20px"}}><img style={{height:"35px",borderRadius:"50%"}} src={naam.profilePic}/>&nbsp; {naam.username}&nbsp;</div>
+          <div className="col-sm-4">{Object.values(naam.followers).includes(userData._id)? <Button variant="primary" size="sm" onClick={()=>followaction(naam._id)}>following</Button>:
+          <Button style={{right:"0px"}} variant="light" size="sm" onClick={()=>followaction(naam._id)}>follow</Button>}</div>
           </div>
+          
         )
       }):''}
+      
     </div>
     </div>
   );

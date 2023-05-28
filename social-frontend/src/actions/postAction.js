@@ -32,7 +32,7 @@ export const currentUserPost=(id)=>async(dispatch)=>{
             authorization:tok
          }
       })
-      console.log("currpost",response)
+       
       dispatch({type:"GETPOST_SUCCESS",data:response})
    }catch (error){
         dispatch({type:"GETPOST_FAILED"})
@@ -48,7 +48,7 @@ export const deletePost=(id)=>async(dispatch)=>{
             authorization:tok
          }
         })
-       console.log("deele",response)
+       
         dispatch({type:"DELETEPOST_SUCCESS"})
    }catch{
        dispatch({type:"DELETEPOST_FAILED"})
@@ -62,11 +62,11 @@ export const createStory=(data)=>async(dispatch)=>{
          story:data.story,
          userId:data.userId
       })
-      console.log("story",response)
+    
       dispatch({type:"CREATESTORY_SUCCESS"})
    }catch(error){
       dispatch({type:"CREATESTORY_FAIL"})
-      console.log(error)
+ 
    }
 }
 

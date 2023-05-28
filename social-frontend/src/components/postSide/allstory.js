@@ -29,21 +29,21 @@ export default function Allstory() {
       : []
   );
 
-  console.log("every", getUsers);
+   
 
   const currentUser = getUsers.filter((people) =>
     people._id.includes(userData._id)
   );
   const mainUser = currentUser ? currentUser[0] : "";
   const userId = userData ? userData._id : "bbbb";
-  // console.log(userId)
+  
 
   const storiess = useSelector((state) =>
     state.getstoryReducer ? state.getstoryReducer.data : ""
   );
 
   const others = storiess ? storiess.otherstory : [];
-  // const mystoriess = storiess ? storiess.mystory : [];
+   
 
   useEffect(() => {
     dispatch(getstory(userId));
@@ -83,22 +83,20 @@ export default function Allstory() {
               profileImage: userDet[0] ? userDet[0].profilePic : "",
             },
           });
-          {
-            console.log("storr", storr);
-          }
+
 
           return (
             <div>
-            <Stories 
+
+            </div>
+          );
+        })}
+        <Stories 
                 stories={storr!==[]?storr:storrs}
                 defaultInterval={500}
                 width={432}
                 height={768}
               />
-            </div>
-          );
-        })}
-
     </div>
   );
 }

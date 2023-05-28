@@ -24,7 +24,6 @@ export default function CreatePost() {
 
   const userid = UserData ? UserData._id : "";
   const postref = useRef();
-  const [image, setImage] = useState(false);
   const [pic, setPic] = useState("");
 
   const handleimg = () => {
@@ -35,7 +34,7 @@ export default function CreatePost() {
 
   const sendata = async () => {
     const data = await { pic, userid, username,alpha };
-    console.log(data);
+
     await dispatch(postShareAction(data)).then(()=>{
        toast({
         title: `You shared post succesful`,

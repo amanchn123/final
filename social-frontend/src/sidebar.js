@@ -24,20 +24,17 @@ import { BsPlusSquare } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { CgMenu } from "react-icons/cg";
-import Nav from 'react-bootstrap/Nav';
-import Profile from "./components/profile/profile";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Logosearch from "./components/profile/logosearch";
-
+import {GrClose} from 'react-icons/gr'
 import Modal from 'react-bootstrap/Modal';
 import CreatePost from "./createPost";
-import Allstory from "./components/postSide/allstory";
+
 
 export default function Sidebar() {
 
     let checkUser = useSelector((state) => state.ReducerLogin.authdata);
-    {checkUser?console.log("dddddd"):console.log("aaaaa")}
 
     const navigate=useNavigate()
     const logout=async()=>{
@@ -58,32 +55,35 @@ export default function Sidebar() {
     }
   
     const name="Enable both scrolling & backdrop" 
+
+
     const [show, setShow] = useState(false);
-  
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
+    const handleShow=()=>setShow(true)
+
   return (
     <div className="col-sm-2 first" style={{ padding:"10px",backgroundColor:"rgb(52, 53, 54)", }}>
-        <div className="logo" style={{placeItems:"center" ,padding:"30px",margin:"0%"}}>
+        <Link to="/" className="logo" style={{placeItems:"center" ,padding:"30px",margin:"0%"}}>
             <img src="https://cdn.kibrispdr.org/data/105/download-logo-instagram-putih-png-42.png" />
-          </div>
+          </Link>
           <div className="sections" style={{display:"grid",justifyContent:"space-around",color:"white"}}>
          
            <NavLink to="/"> <span style={{display:"flex", placeItems:"center",fontSize:"150%",marginTop:"3px",border:"none"}}><AiFillHome />&nbsp;Home</span></NavLink>
            <span activeStyle={{ color:"black" }} style={{display:"flex", placeItems:"center",fontSize:"150%",marginTop:"3px",cursor:"pointer"}} onClick={toggleShow}><ImSearch />&nbsp;Search</span>
            
-           <Offcanvas show={show} onHide={handleClose} {...options} style={{marginLeft:"80px",backgroundColor:"black",color:"white"}}>
-        <Offcanvas.Header closeButton >
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-          <Button variant="" style={{color:"white"}} >
-            close
-          </Button>
+           <Offcanvas show={show} onHide={handleClose} {...options} style={{marginLeft:"80px",backgroundColor:"rgb(75, 82, 82)",color:"white"}}>
+        <Offcanvas.Header  >
+          <Offcanvas.Title>Search User</Offcanvas.Title>
+          <span onClick={handleClose} variant="" style={{color:"white",cursor:"pointer"}} >
+             <GrClose  />
+          </span>
         </Offcanvas.Header>
         <Offcanvas.Body>
            <Logosearch />
         </Offcanvas.Body>
       </Offcanvas>
-      
+            
             <span style={{display:"flex", placeItems:"center",fontSize:"150%",marginTop:"3px"}}><IoMdCompass />&nbsp;explore</span>
             <span style={{display:"flex", placeItems:"center",fontSize:"150%",marginTop:"3px"}}><BiMessageRoundedDots />&nbsp;Messages</span>
             <span style={{display:"flex", placeItems:"center",fontSize:"150%",marginTop:"3px"}}><MdOutlineNotificationsNone />&nbsp;Notification</span>

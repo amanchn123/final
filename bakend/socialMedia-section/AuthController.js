@@ -43,7 +43,7 @@ const loginUser=async(req,resp)=>{
       if(verifyPassword){
         const token=jwt.sign({
           username:response.username, id:response._id
-         },process.env.SECRET_KEY,{expiresIn:'1h'})
+         },process.env.SECRET_KEY)
   
         resp.json({response,success:true,token})
       }else{

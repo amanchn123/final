@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { useToast } from "@chakra-ui/toast";
 import { postShareAction } from "../../actions/postAction";
-import Spinner from 'react-bootstrap/Spinner';
 
 
 
@@ -61,7 +60,7 @@ export default function Postshare() {
      await data.append("api_key", "425238981713824");
      await data.append("upload_preset", "chatting");
      await data.append("cloud_name", "amanchn");
-      console.log("dat", data);
+    
 
      await fetch("https://api.cloudinary.com/v1_1/chatapp/image/upload", {
         method: "post",

@@ -180,7 +180,7 @@ var LikePost = function LikePost(req, resp) {
         case 0:
           id = req.query.id;
           currentUserId = req.body.currentUserId;
-          console.log(id, currentUserId);
+      
           _context5.prev = 3;
           _context5.next = 6;
           return regeneratorRuntime.awrap(PostModel.findByIdAndUpdate({
@@ -189,14 +189,14 @@ var LikePost = function LikePost(req, resp) {
 
         case 6:
           someOnespost = _context5.sent;
-          console.log(someOnespost);
+          
 
           if (someOnespost.likes.includes(currentUserId)) {
             _context5.next = 15;
             break;
           }
 
-          console.log("ttt");
+          
           _context5.next = 12;
           return regeneratorRuntime.awrap(someOnespost.updateOne({
             $push: {
@@ -227,7 +227,7 @@ var LikePost = function LikePost(req, resp) {
         case 20:
           _context5.prev = 20;
           _context5.t0 = _context5["catch"](3);
-          console.log(_context5.t0);
+          
 
         case 23:
         case "end":
@@ -379,7 +379,7 @@ var storyTimeline = function storyTimeline(req, resp) {
         case 2:
           _ref3 = _context9.sent;
           userId = _ref3.userId;
-          console.log(userId);
+          
           _context9.prev = 5;
           _context9.next = 8;
           return regeneratorRuntime.awrap(Usermodal.aggregate([{

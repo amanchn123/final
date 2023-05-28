@@ -8,7 +8,6 @@ import store from './store/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import persistStore from 'redux-persist/es/persistStore';
 import './index.css'
-import Apps from './you';
 import { BrowserRouter } from 'react-router-dom';
 
 

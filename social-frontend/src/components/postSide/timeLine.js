@@ -69,7 +69,7 @@ export default function TimeLine() {
       })
 
     }catch{
-       console.log("likes erro")
+     
     }
   }
 
@@ -85,7 +85,7 @@ export default function TimeLine() {
       );
       setPost(respose.data);
     } catch (error) {
-      console.log(error);
+      
     }
   };
 

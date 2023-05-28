@@ -24,7 +24,6 @@ const submit=(e)=>{
   }else{
     alert("pass")
   }
-  console.log(data)
 }
 
 const handleChange=(e)=>{

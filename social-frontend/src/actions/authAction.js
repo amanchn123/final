@@ -48,7 +48,7 @@ export const RegisterAction=(data)=>async(dispatch)=>{
             dispatch({type:"REGISTER_FAILED"})
         }      
    }catch (error){
-      console.log(error)
+      
       dispatch({type:"REGISTER_FAILED"})
    }
 }
@@ -68,7 +68,7 @@ export const followerData=(id)=>async(dispatch)=>{
       })
       dispatch({type:"FOLLOWER_SUCCESS",data:response.data})
    }catch (error){
-      console.log(error)
+       
        dispatch({type:"FOLLOWER_FAILED"}) 
    }
 }
@@ -85,7 +85,7 @@ export const getUser=()=>async(dispatch)=>{
       dispatch({type:"GETUSER_SUCCESS",data:response.data})
    }catch (error){
       dispatch({type:"GETUSER_FAILED"})
-      console.log('getUser problem')
+       
    }
 }
 
@@ -103,7 +103,7 @@ try{
 
    dispatch({type:"FOLLOW_SUCCESS",data:response.data})
 }catch{
-   console.log('follow err')
+   
    dispatch({type:"FOLLOW_FAILED"})
 }
 }
@@ -111,7 +111,7 @@ try{
 export const currentUser=()=>async(dispatch)=>{
    const tok=JSON.parse(localStorage.getItem("Auth"))?JSON.parse(localStorage.getItem("Auth")).token:""
    dispatch({type:"CURRENTUSER_REQUEST"})
-   try{console.log("9999999999",currentUser)
+   try{ 
       const userData=await useSelector((state)=>state.ReducerLogin?state.ReducerLogin.authdata?state.ReducerLogin.authdata.response:"nodata":"nodata")
       const getUsers=await useSelector((state)=>state.getAllUserReducer.data?state.getAllUserReducer.data?state.getAllUserReducer.data.result:[]:[])
 
@@ -120,7 +120,7 @@ export const currentUser=()=>async(dispatch)=>{
        dispatch({type:"CURRENTUSER_SUCCESS",data:currentUser})
   
    }catch(error) {
-      console.log(error)
+      
       dispatch({type:"CURRENTUSER_FAILED"})
    }
 }

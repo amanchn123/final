@@ -14,27 +14,10 @@ import Auth from "./pages/auth";
 import { ChakraProvider, LinkBox } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import Profilepage from "./pages/profile/profilePage.js";
-import { AiFillHome } from "react-icons/ai";
-import { ImSearch } from "react-icons/im";
-import { IoMdCompass } from "react-icons/io";
-import { BsCameraReels } from "react-icons/bs";
-import { BiMessageRoundedDots } from "react-icons/bi";
-import { GrNotification } from "react-icons/gr";
-import { BsPlusSquare } from "react-icons/bs";
-import { CgProfile } from "react-icons/cg";
-import { MdOutlineNotificationsNone } from "react-icons/md";
-import { CgMenu } from "react-icons/cg";
-import Nav from 'react-bootstrap/Nav';
 import Profile from "./components/profile/profile";
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import Logosearch from "./components/profile/logosearch";
-
-import Modal from 'react-bootstrap/Modal';
-import CreatePost from "./createPost";
 import Allstory from "./components/postSide/allstory";
 import Sidebar from "./sidebar";
-import axios from "axios";
+
 
 
 
@@ -44,35 +27,20 @@ function App() {
  const verify=async()=>{
   
   const tok=await JSON.parse(localStorage.getItem("Auth"))?JSON.parse(localStorage.getItem("Auth")).token:null
-  console.log("tooooo",tok)
-  
-  //  try{
-  //   const response=await axios.get(`http://localhost:5000/apii/loginLogout`,{
-  //     headers:{
-  //       authorization:tok
-  //    }
-  //   })
+
 
     if(tok ){
       setLog(true)
     }else{
       setLog(false)
     }
-  //  }catch (error){
-  //   console.log(error)
-  //  } 
-
  }
-
- console.log('loggggggggggggggggg',log)
 
   const navigate=useNavigate()
 
 
   
   const [showcreate, setShowcreate] = useState(false);
-  const handleClosecreate = () => setShowcreate(false);
-  const handleShowcreate = () => setShowcreate(true);
   
 
   const options=  {
@@ -85,11 +53,6 @@ function App() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const toggleShow = () => setShow((s) => !s);
-
-  
-
- 
 
 
    useEffect(()=>{

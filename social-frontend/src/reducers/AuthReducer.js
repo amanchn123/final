@@ -12,7 +12,6 @@ export const ReducerLogin=(state=initialState,action)=>{
             return {...state,loading:true}
 
         case "LOGIN_SUCCESS":
-            console.log("action.payload",action.payload)
             localStorage.setItem("Auth",JSON.stringify(action.payload))
             return{...state,authdata:action.payload,loading:false}  
             

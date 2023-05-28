@@ -1,6 +1,5 @@
 import React from 'react'
 import './PostSide.css'
-import Postshare from './postshare'
 import TimeLine from './timeLine'
 import Stories from './stories'
 
